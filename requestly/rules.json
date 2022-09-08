@@ -1,0 +1,95 @@
+[
+  {
+    "createdBy": "requestly",
+    "creationDate": 1662665744719,
+    "currentOwner": "requestly",
+    "description": "",
+    "groupId": "",
+    "id": "Headers_y3dzt",
+    "isSample": false,
+    "lastModified": 1662665953491,
+    "lastModifiedBy": "requestly",
+    "modificationDate": 1662665953491,
+    "name": "Test Headers Rule",
+    "objectType": "rule",
+    "pairs": [
+      {
+        "id": "xtj31",
+        "modifications": {
+          "Request": [
+            {
+              "header": "x-request-id",
+              "id": "xtn0v",
+              "type": "Add",
+              "value": "test-request-header"
+            }
+          ],
+          "Response": []
+        },
+        "source": {
+          "filters": [],
+          "key": "Url",
+          "operator": "Contains",
+          "value": "returnHeaders"
+        }
+      },
+      {
+        "id": "ba1li",
+        "modifications": {
+          "Request": [],
+          "Response": [
+            {
+              "header": "x-response-id",
+              "id": "2ezc2",
+              "type": "Add",
+              "value": "test-response-header"
+            }
+          ]
+        },
+        "source": {
+          "filters": [],
+          "key": "Url",
+          "operator": "Contains",
+          "value": "exampleAPI"
+        }
+      }
+    ],
+    "ruleType": "Headers",
+    "status": "Active",
+    "version": 2
+  },
+  {
+    "createdBy": "requestly",
+    "creationDate": 1662664789872,
+    "currentOwner": "requestly",
+    "description": "",
+    "groupId": "",
+    "id": "Response_emgma",
+    "isSample": false,
+    "lastModified": 1662664948726,
+    "lastModifiedBy": "requestly",
+    "modificationDate": 1662664948726,
+    "name": "Test Response Rule",
+    "objectType": "rule",
+    "pairs": [
+      {
+        "id": "1v6ur",
+        "response": {
+          "statusCode": "",
+          "type": "static",
+          "value": "{ \"modified\": true }"
+        },
+        "source": {
+          "filters": [
+            null
+          ],
+          "key": "Url",
+          "operator": "Contains",
+          "value": "testheaders.com/exampleAPI"
+        }
+      }
+    ],
+    "ruleType": "Response",
+    "status": "Active"
+  }
+]

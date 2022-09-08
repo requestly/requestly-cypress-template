@@ -1,0 +1,27 @@
+{
+  "name": "@requestly/cypress-template",
+  "version": "0.1.0",
+  "description": "Template for Cypress automation tests in Requestly integrated browser",
+  "scripts": {
+    "test": "npm run test:chrome",
+    "test:chrome": "cypress run --browser chrome --headed",
+    "test:edge": "cypress run --browser edge --headed"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/requestly/requestly-cypress-template.git"
+  },
+  "author": {
+    "name": "Requestly",
+    "email": "contact@requestly.io",
+    "url": "https://requestly.io/"
+  },
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/requestly/requestly-cypress-template/issues"
+  },
+  "homepage": "https://github.com/requestly/requestly-cypress-template#readme",
+  "devDependencies": {
+    "cypress": "^10.7.0"
+  }
+}

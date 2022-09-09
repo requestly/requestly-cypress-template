@@ -1,3 +1,4 @@
+window.testMode = true;
 
   if (typeof isReactApp === "undefined") {
     var isReactApp = typeof require !== "undefined";
@@ -3284,6 +3285,10 @@ BG.Methods.sendMessage = function (messageObject, callback) {
 };
 
 BG.Methods.trackEvent = function (category, action, label) {
+  if (window.testMode) {
+    return;
+  }
+
   if (RQ.configs.collectExtUsageStats) {
     _gaq.push(["_trackEvent", category, action, label]);
   }
@@ -3294,7 +3299,9 @@ BG.Methods.handleExtensionInstalledOrUpdated = function (details) {
     // Set installation date in storage so that we can take decisions based on usage time in future
     RQ.StorageService.saveRecord({ user_info: BG.userInfo });
 
-    // chrome.tabs.create({ url: RQ.configs.WEB_URL + "/extension-installed" });
+    if (!window.testMode) {
+      chrome.tabs.create({ url: RQ.configs.WEB_URL + "/extension-installed" });
+    }
   }
 
   // Send extension install/update event to google analytics
@@ -3774,10 +3781,9 @@ BG.Methods.init = function () {
         superObject[object.id] = object;
       }
     });
-    
-    StorageService.getStorageType().then((storageType) => {
-      chrome.storage[storageType].set(superObject);
-    });
+
+    const storageType = await StorageService.getStorageType();
+    chrome.storage[storageType].set(superObject);
   } catch (e) {
     // do nothing
   }

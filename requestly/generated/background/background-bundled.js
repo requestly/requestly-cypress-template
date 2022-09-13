@@ -3065,7 +3065,7 @@ BG.Methods.overrideResponse = function (details, responseHeaders) {
     RQ.RULE_TYPES.RESPONSE
   );
 
-  if (responseRules.length > 0) {
+  if (details.tabId > 0 && responseRules.length > 0) {
     const finalResponseRule = responseRules[responseRules.length - 1]; // last overridden response is final
 
     chrome.tabs.sendMessage(

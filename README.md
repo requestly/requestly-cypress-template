@@ -18,7 +18,7 @@ npm install
 
 3. Export your rules from Requestly: https://app.requestly.io/rules/my-rules 
 
-4. Replace `rules.json` in `requestly` directory with above exported file. Make sure you name it as `rules.json`.
+4. Replace `rules.json` in `requestly` directory with above exported file. Make sure you name it as `rules.json`. If you are moving `requestly` directory from project root to a different location, you need to update `REQUESTLY_FOLDER_PATH` in `cypress.config.js`.
 
 5. Set `baseUrl` in `cypress.config.js` file as your application URL.
 
